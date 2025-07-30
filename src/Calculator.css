@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0e0e0e;
+  overflow: hidden;
+  color: white;
+}
+
+/* Abstract Background Blobs */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.bg-blobs::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle at 20% 20%, #ff6ec4, transparent),
+              radial-gradient(circle at 80% 80%, #7873f5, transparent);
+  filter: blur(200px);
+  z-index: 0;
+}
+
+/* Glassmorphism Box */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 320px;
+  z-index: 1;
+}
+
+/* Light/Dark modes (optional toggle) */
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.3);
+  color: #222;
+}
+
+/* Display */
+.display {
+  font-size: 1.4rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  height: 80px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  color: #fdfffe;
+}
+
+/* Button Grids */
+.buttons,
+.sci-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+
+/* Wrap both calculator and history */
+.calc-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+/* History box styles */
+.history-glass {
+  width: 220px;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* Light/Dark mode for history */
+.dark .history-glass {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.light .history-glass {
+  background: rgba(255, 255, 255, 0.3);
+  color: #222;
+}
+
+.calc-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.history-glass {
+  width: 220px;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.27);
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dark .history-glass {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.light .history-glass {
+  background: rgba(255, 255, 255, 0.3);
+  color: #222;
+}
+
+/* Buttons Styling */
+.buttons button,
+.sci-buttons button {
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  color: #ffffff;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.buttons button:hover,
+.sci-buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+  cursor: pointer;
+  color: #ffeb3b;
+}
+
+/* Top Bar (Toggle Buttons Container) */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Toggle Button */
+.toggle-button {
+  width: 60px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toggle-button::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.toggle-button.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.toggle-button.active::before {
+  transform: translateX(30px);
+  background: #ffeb3b;
+}
+
+/* History Log */
+.history-log {
+  margin-top: 1rem;
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.history-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.history-log li {
+  cursor: pointer;
+  padding: 4px;
+}
+
+.history-log li:hover {
+  text-decoration: underline;
+}
